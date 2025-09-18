@@ -1,0 +1,330 @@
+<script lang="ts">
+	// Dummy data for the timetable
+	const timetableData = [
+		{
+			subjectname: "Mr. Ross Hills",
+			start: "08:00",
+			end: "09:00",
+			venue: "Room 101",
+			day: "Monday",
+			$id: "68cb7c2e00110d3c48ee",
+			$sequence: 1,
+			$createdAt: "2025-09-18T03:27:42.647+00:00",
+			$updatedAt: "2025-09-18T03:27:42.647+00:00",
+			$permissions: ["read(\"user:68c7b714003919ddade2\")", "update(\"user:68c7b714003919ddade2\")", "delete(\"user:68c7b714003919ddade2\")"],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Mathematics",
+			start: "09:30",
+			end: "10:30",
+			venue: "Room 102",
+			day: "Monday",
+			$id: "68cb8372001325bd603b",
+			$sequence: 2,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Physics",
+			start: "10:45",
+			end: "11:45",
+			venue: "Lab 1",
+			day: "Monday",
+			$id: "68cb8372001325bd603c",
+			$sequence: 3,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Chemistry",
+			start: "08:00",
+			end: "09:00",
+			venue: "Lab 2",
+			day: "Tuesday",
+			$id: "68cb8372001325bd603d",
+			$sequence: 4,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "English",
+			start: "09:30",
+			end: "10:30",
+			venue: "Room 201",
+			day: "Tuesday",
+			$id: "68cb8372001325bd603e",
+			$sequence: 5,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Computer Science",
+			start: "10:45",
+			end: "11:45",
+			venue: "Computer Lab",
+			day: "Tuesday",
+			$id: "68cb8372001325bd603f",
+			$sequence: 6,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "History",
+			start: "08:00",
+			end: "09:00",
+			venue: "Room 301",
+			day: "Wednesday",
+			$id: "68cb8372001325bd6040",
+			$sequence: 7,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Biology",
+			start: "09:30",
+			end: "10:30",
+			venue: "Lab 3",
+			day: "Wednesday",
+			$id: "68cb8372001325bd6041",
+			$sequence: 8,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Geography",
+			start: "10:45",
+			end: "11:45",
+			venue: "Room 401",
+			day: "Wednesday",
+			$id: "68cb8372001325bd6042",
+			$sequence: 9,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Physical Education",
+			start: "08:00",
+			end: "09:00",
+			venue: "Sports Hall",
+			day: "Thursday",
+			$id: "68cb8372001325bd6043",
+			$sequence: 10,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Art",
+			start: "09:30",
+			end: "10:30",
+			venue: "Art Studio",
+			day: "Thursday",
+			$id: "68cb8372001325bd6044",
+			$sequence: 11,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Music",
+			start: "10:45",
+			end: "11:45",
+			venue: "Music Room",
+			day: "Thursday",
+			$id: "68cb8372001325bd6045",
+			$sequence: 12,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Library",
+			start: "08:00",
+			end: "09:00",
+			venue: "Library",
+			day: "Friday",
+			$id: "68cb8372001325bd6046",
+			$sequence: 13,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		},
+		{
+			subjectname: "Study Hall",
+			start: "09:30",
+			end: "10:30",
+			venue: "Room 501",
+			day: "Friday",
+			$id: "68cb8372001325bd6047",
+			$sequence: 14,
+			$createdAt: "2025-09-18T03:58:42.529+00:00",
+			$updatedAt: "2025-09-18T03:58:42.529+00:00",
+			$permissions: [],
+			$databaseId: "main",
+			$collectionId: "timetable"
+		}
+	];
+
+	// Group timetable by days
+	const groupedTimetable = timetableData.reduce((acc, item) => {
+		if (!acc[item.day]) {
+			acc[item.day] = [];
+		}
+		acc[item.day].push(item);
+		return acc;
+	}, {} as Record<string, typeof timetableData>);
+
+	// Days of the week in order
+	const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+	// Get current day
+	const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+
+	// Function to scroll to specific day
+	function scrollToDay(day: string) {
+		const element = document.getElementById(`day-${day.toLowerCase()}`);
+		if (element) {
+			element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+	}
+</script>
+
+<svelte:head>
+	<title>Weekly Timetable</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</svelte:head>
+
+<div class="min-h-screen bg-base-200 p-4">
+	<div class="max-w-4xl mx-auto">
+		<!-- Header -->
+		<div class="text-center mb-6">
+			<h1 class="text-3xl font-bold text-primary mb-2">📚 Weekly Timetable</h1>
+			<p class="text-base-content/70">Your class schedule for the week</p>
+		</div>
+
+		<!-- Days Navigation -->
+		<div class="tabs tabs-boxed justify-center mb-6 bg-base-100">
+			{#each daysOfWeek as day}
+				<button 
+					class="tab {today === day ? 'tab-active' : ''}"
+					onclick={() => scrollToDay(day)}
+				>
+					{day}
+				</button>
+			{/each}
+		</div>
+
+		<!-- Timetable Content -->
+		<div class="space-y-6">
+			{#each daysOfWeek as day}
+				<div id="day-{day.toLowerCase()}" class="card bg-base-100 shadow-lg">
+					<div class="card-body">
+						<h2 class="card-title text-xl text-primary mb-4 flex items-center">
+							📅 {day}
+							{#if today === day}
+								<div class="badge badge-primary badge-sm">Today</div>
+							{/if}
+						</h2>
+						
+						{#if groupedTimetable[day] && groupedTimetable[day].length > 0}
+							<div class="space-y-3">
+								{#each groupedTimetable[day] as classItem}
+									<div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+										<div class="card-body p-4">
+											<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+												<div class="flex-1">
+													<h3 class="font-semibold text-lg text-base-content">
+														{classItem.subjectname}
+													</h3>
+													<div class="flex flex-wrap gap-2 mt-2">
+														<div class="badge badge-outline">
+															🕐 {classItem.start} - {classItem.end}
+														</div>
+														<div class="badge badge-outline">
+															📍 {classItem.venue}
+														</div>
+													</div>
+												</div>
+												<div class="flex-shrink-0">
+													<div class="w-3 h-3 rounded-full bg-primary"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								{/each}
+							</div>
+						{:else}
+							<div class="text-center py-8 text-base-content/50">
+								<div class="text-4xl mb-2">📝</div>
+								<p>No classes scheduled for {day}</p>
+							</div>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+
+		<!-- Summary Card -->
+		<div class="card bg-primary text-primary-content mt-6">
+			<div class="card-body text-center">
+				<h3 class="card-title justify-center">📊 Weekly Summary</h3>
+				<p class="text-lg">
+					Total Classes: <span class="font-bold">{timetableData.length}</span>
+				</p>
+				<p class="text-sm opacity-80">
+					Classes scheduled across {Object.keys(groupedTimetable).length} days
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Mobile-first responsive design */
+	@media (max-width: 640px) {
+		.tabs {
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		
+		.tab {
+			flex: 1;
+			min-width: 0;
+			font-size: 0.875rem;
+		}
+	}
+</style>
